@@ -1,0 +1,46 @@
+type User{
+    username: String!,
+    name: String,
+    surname: String,
+    address: String
+    email: String!,
+    role: String!,
+}
+
+type UserLogin{
+    username: String!,
+    name: String,
+    surname: String,
+    token: String!,
+    email: String
+}
+
+input createUserInput{
+    username: String!,
+    password: String!
+    name: String!,
+    surname: String!,
+    address: String
+    email: String!
+}
+
+input updateUserInput{
+    token: String
+    username: String!,
+    password: String
+    name: String,
+    surname: String,
+    address: String
+    email: String
+}
+
+type Query{
+    getUsers: [User]
+    paginateUsers(page:Int!, users:Int!): [User]
+    authUser(username:String!, password:String!):UserLogin
+}
+
+type Mutation{
+    createUser(user:createUserInput): User
+    updateUser(user:updateUserInput): User
+}
