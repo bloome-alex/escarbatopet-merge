@@ -1,7 +1,4 @@
 {
-  "engines": {
-    "node": "^12"
-  },
   "name": "escarbato-backend",
   "version": "0.0.0",
   "description": "backend de escarbato petshop",
