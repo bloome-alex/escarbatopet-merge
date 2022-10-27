@@ -18,8 +18,8 @@ type UserLogin{
 input createUserInput{
     username: String!,
     password: String!
-    name: String!,
-    surname: String!,
+    name: String,
+    surname: String,
     address: String
     email: String!
 }
@@ -38,6 +38,7 @@ type Query{
     getUsers: [User]
     paginateUsers(page:Int!, users:Int!): [User]
     authUser(username:String!, password:String!):UserLogin
+    authUserByToken(token:String!):UserLogin
 }
 
 type Mutation{

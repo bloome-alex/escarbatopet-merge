@@ -80,10 +80,22 @@ const authUser = async(username, password) => {
     }
 }
 
+const authUserByToken = async(token)=>{
+    const {user: {username, name, surname, email}} = jwt.verify(token, process.env.JWT_SECRET)
+    return {
+        username,
+        name,
+        surname,
+        email,
+        token
+    }
+}
+
 module.exports = {
     fetchUsers,
     paginateUsers,
     createUser,
     updateUser,
-    authUser
+    authUser,
+    authUserByToken
 }

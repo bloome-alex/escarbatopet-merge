@@ -1,4 +1,4 @@
-const { fetchUsers, paginateUsers, createUser, updateUser, authUser } = require("../../services")
+const { fetchUsers, paginateUsers, createUser, updateUser, authUser, authUserByToken } = require("../../services")
 
 const resolvers = {
     Query: {
@@ -10,6 +10,9 @@ const resolvers = {
         },
         authUser: async(_, {username, password}) => {
             return await authUser(username, password)
+        },
+        authUserByToken: async(_, {token}) => {
+            return await authUserByToken(token)
         }
     },
     Mutation: {

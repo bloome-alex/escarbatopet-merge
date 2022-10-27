@@ -3,12 +3,14 @@ fetchUsers,
 paginateUsers,
 createUser,
 updateUser,
-authUser } = require('./userServices')
+authUser,
+authUserByToken } = require('./userServices')
 
 module.exports = {
     fetchUsers,
     paginateUsers,
     createUser,
     updateUser,
-    authUser
+    authUser,
+    authUserByToken
 }
