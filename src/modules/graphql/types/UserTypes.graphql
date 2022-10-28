@@ -1,0 +1,54 @@
+type User{
+    username: String!
+    name: String
+    surname: String
+    address: String
+    email: String!
+    role: String!
+}
+
+type UserLogin{
+    username: String!
+    name: String
+    surname: String
+    token: String!
+    email: String
+    address: String
+}
+
+input createUserInput{
+    username: String!
+    password: String!
+    name: String
+    surname: String
+    address: String
+    email: String!
+}
+
+input updateUserInput{
+    token: String!
+    username: String!
+    password: String
+    name: String
+    surname: String
+    address: String
+    email: String
+}
+
+type existUser{
+    username: Boolean
+    email: Boolean
+}
+
+type Query{
+    existUser(email:String, username:String): existUser
+    getUsers: [User]
+    paginateUsers(page:Int!, users:Int!): [User]
+    authUser(username:String!, password:String!):UserLogin
+    authUserByToken(token:String!):UserLogin
+}
+
+type Mutation{
+    createUser(user:createUserInput): User
+    updateUser(user:updateUserInput): User
+}
